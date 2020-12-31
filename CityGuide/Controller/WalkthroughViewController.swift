@@ -22,7 +22,7 @@ class WalkthroughViewController: UIViewController, WalkthroughPageViewController
         }
     }
         UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
-    
+    //
     
     @IBOutlet var skipButton: UIButton!
     
