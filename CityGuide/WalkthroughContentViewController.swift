@@ -10,6 +10,8 @@ import UIKit
 
 class WalkthroughContentViewController: UIViewController {
     
+    var pageViewController = WalkthroughPageViewController().pageViewController(_:)
+    
     @IBOutlet var headingLabel: UILabel! {
         didSet {
             headingLabel.numberOfLines = 0
@@ -33,6 +35,9 @@ class WalkthroughContentViewController: UIViewController {
         headingLabel.text = heading
         subHeadingLabel.text = subHeading
         contentImageView.image = UIImage(named: imageFile)
-        
     }
+
+    pageViewController(_:viewControllerBefore:)
+    pageViewController(_:viewControllerAfter:)
+
 }

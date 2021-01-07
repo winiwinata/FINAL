@@ -14,11 +14,10 @@ var pageSubHeadings = ["Be your own tour guide, Pin your favorite restaurants an
                        "Search and locate your favourite restaurant on Maps",
                        "Find restaurants shared by your friends and other foodies",]
 
-var currentIndex = 0
-
-weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate?
-
 class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    var currentIndex = 0
+    weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
             setViewControllers([startingViewController], direction: .forward, animated: true, completion: nil)
         }
         
-        //delegate = self
+        delegate = self
     }
     
     func contentViewController(at index: Int) -> WalkthroughContentViewController? {
@@ -54,6 +53,13 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         return nil
     }
     
+    func forwardPage() {
+        currentIndex += 1
+        if let nextViewController = contentViewController(at: currentIndex) {
+            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - UIPageViewControllerDataSource methods
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -71,24 +77,24 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
         
         return contentViewController(at: index)
     }
+
+    // MARK: - UIPageViewControllerDelegate methods
+
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        if completed {
+            if let contentViewController = pageViewController.viewControllers?.first as? WalkthroughContentViewController {
+                
+                currentIndex = contentViewController.index
+                
+                walkthroughDelegate?.didUpdatePageIndex(currentIndex: contentViewController.index)
+            }
+            
+        }
+    }
     
 }
 
 protocol WalkthroughPageViewControllerDelegate: class {
     func didUpdatePageIndex(currentIndex: Int)
-}
-
-// MARK: - UIPageViewControllerDelegate methods
-
-func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    
-    if completed {
-        if let contentViewController = pageViewController.viewControllers?.first as? WalkthroughContentViewController {
-            
-            currentIndex = contentViewController.index
-            
-            walkthroughDelegate?.didUpdatePageIndex(currentIndex: contentViewController.index)
-        }
-        
-    }
 }

@@ -9,11 +9,13 @@
 import UIKit
 
 class WalkthroughViewController: UIViewController, WalkthroughPageViewControllerDelegate {
+    
     func didUpdatePageIndex(currentIndex: Int) {
         updateUI()
     }
     
     var walkthroughPageViewController: WalkthroughPageViewController?
+    
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var nextButton: UIButton! {
         didSet {
@@ -21,36 +23,32 @@ class WalkthroughViewController: UIViewController, WalkthroughPageViewController
             nextButton.layer.masksToBounds = true
         }
     }
-        UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
-    //
     
     @IBOutlet var skipButton: UIButton!
-    
-    // var walkthroughPageViewController: WalkthroughPageViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
     }
     
     // MARK: - Action methods
     
     @IBAction func skipButtonTapped(sender: UIButton) {
         
-        //UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
+        Foundation.UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func nextButtonTapped(sender: UIButton) {
         
-        if let index = WalkthroughPageViewController?.currentIndex {
+        if let index = walkthroughPageViewController?.currentIndex {
             switch index {
             case 0...1:
-                WalkthroughPageViewController?.forwardPage()
+                walkthroughPageViewController?.forwardPage()
                 
             case 2:
-                //UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
+                Foundation.UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
                 dismiss(animated: true, completion: nil)
                 
             default: break
@@ -71,12 +69,6 @@ class WalkthroughViewController: UIViewController, WalkthroughPageViewController
         }
     }
     
-    func forwardPage() {
-        currentIndex += 1
-        if let nextViewController = contentViewController(at: currentIndex) {
-            setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
-        }
-    }
     func updateUI() {
         
         if let index = walkthroughPageViewController?.currentIndex {
@@ -92,9 +84,6 @@ class WalkthroughViewController: UIViewController, WalkthroughPageViewController
             
             pageControl.currentPage = index
         }
-        
     }
-    
-    
 
 }
