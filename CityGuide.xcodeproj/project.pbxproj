@@ -42,9 +42,6 @@
 		4EE8176F2541277C008B828E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EE8176D2541277C008B828E /* LaunchScreen.storyboard */; };
 		4EE817772541293D008B828E /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE817762541293D008B828E /* RestaurantTableViewController.swift */; };
 		4EE8177925413599008B828E /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8177825413599008B828E /* RestaurantTableViewCell.swift */; };
-		4EF2167225A6B5D80014378E /* WeatherForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2167125A6B5D80014378E /* WeatherForecastData.swift */; };
-		4EF2167425A6B6510014378E /* CityWeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2167325A6B6510014378E /* CityWeatherController.swift */; };
-		4EF2167625A6B75F0014378E /* CityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF2167525A6B75F0014378E /* CityWeatherViewController.swift */; };
 		ADA2CC6D2595B65800BF404D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA2CC6C2595B65800BF404D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -86,9 +83,6 @@
 		4EE817702541277C008B828E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EE817762541293D008B828E /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		4EE8177825413599008B828E /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
-		4EF2167125A6B5D80014378E /* WeatherForecastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastData.swift; sourceTree = "<group>"; };
-		4EF2167325A6B6510014378E /* CityWeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherController.swift; sourceTree = "<group>"; };
-		4EF2167525A6B75F0014378E /* CityWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherViewController.swift; sourceTree = "<group>"; };
 		ADA2CC6C2595B65800BF404D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,7 +164,6 @@
 				4EE8176D2541277C008B828E /* LaunchScreen.storyboard */,
 				4EE817702541277C008B828E /* Info.plist */,
 				4E99A494259D6FF90094A64F /* Onboard.storyboard */,
-				4EF2167125A6B5D80014378E /* WeatherForecastData.swift */,
 			);
 			path = CityGuide;
 			sourceTree = "<group>";
@@ -187,8 +180,6 @@
 				4E0BF35E259440E2000DBD8B /* AboutMeController.swift */,
 				4E99A498259D7E860094A64F /* WalkthroughPageViewController.swift */,
 				4E99A49A259D802E0094A64F /* WalkthroughViewController.swift */,
-				4EF2167325A6B6510014378E /* CityWeatherController.swift */,
-				4EF2167525A6B75F0014378E /* CityWeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,10 +292,8 @@
 			files = (
 				4E6C84F6257878D900896E88 /* RestaurantDetailMapCell.swift in Sources */,
 				4EE8177925413599008B828E /* RestaurantTableViewCell.swift in Sources */,
-				4EF2167425A6B6510014378E /* CityWeatherController.swift in Sources */,
 				4E2BA74E2581C29F0025546B /* ReviewViewController.swift in Sources */,
 				4E0BF35F259440E2000DBD8B /* AboutMeController.swift in Sources */,
-				4EF2167225A6B5D80014378E /* WeatherForecastData.swift in Sources */,
 				4E0D3E08256F527F00E04A0E /* RestaurantDetailTextCell.swift in Sources */,
 				4EE817632541277C008B828E /* AppDelegate.swift in Sources */,
 				4E5419B42566047000AE2EB4 /* Restaurant.swift in Sources */,
@@ -315,7 +304,6 @@
 				4E6C84F8257882E600896E88 /* MapViewController.swift in Sources */,
 				4E3CBE0025539CB1002913BA /* RestaurantDetailViewController.swift in Sources */,
 				4E99A499259D7E860094A64F /* WalkthroughPageViewController.swift in Sources */,
-				4EF2167625A6B75F0014378E /* CityWeatherViewController.swift in Sources */,
 				4E85D7E3258AF12700B4DDA8 /* NewRestaurantController.swift in Sources */,
 				4EE817652541277C008B828E /* SceneDelegate.swift in Sources */,
 				4E85D7E1258AEFEE00B4DDA8 /* RoundedTextField.swift in Sources */,

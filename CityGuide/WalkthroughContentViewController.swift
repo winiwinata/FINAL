@@ -8,9 +8,16 @@
 
 import UIKit
 
-class WalkthroughContentViewController: UIViewController {
+class WalkthroughContentViewController: UIViewController, UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+            return WalkthroughPageViewController().contentViewController(at: index)
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+            return WalkthroughPageViewController().contentViewController(at: index)
+    }
     
-    var pageViewController = WalkthroughPageViewController().pageViewController(_:)
+//    var pageViewController = WalkthroughPageViewController().pageViewController(_:)
     
     @IBOutlet var headingLabel: UILabel! {
         didSet {
@@ -35,9 +42,7 @@ class WalkthroughContentViewController: UIViewController {
         headingLabel.text = heading
         subHeadingLabel.text = subHeading
         contentImageView.image = UIImage(named: imageFile)
+    
     }
-
-    pageViewController(_:viewControllerBefore:)
-    pageViewController(_:viewControllerAfter:)
 
 }
